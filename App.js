@@ -3,13 +3,13 @@ import express from 'express';
 import mongoose from "mongoose"
 import session from "express-session";
 import UserRoutes from "./Kanbas/Users/routes.js";
-
-import cors from "cors";
-import Hello from "./Hello.js";
-import Lab5 from "./Lab5.js";
 import CourseRoutes from "./Kanbas/courses/routes.js";
 import ModuleRoutes from "./Kanbas/modules/routes.js";
 import AssignmentRoutes from "./Kanbas/assignment/routes.js";
+import cors from "cors";
+import Hello from "./Hello.js";
+import Lab5 from "./Lab5.js";
+
 
 mongoose.connect("mongodb://127.0.0.1:27017/kanbas");
 const app = express()

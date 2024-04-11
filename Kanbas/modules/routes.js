@@ -29,13 +29,6 @@ export default function ModuleRoutes(app) {
     };
     app.delete("/api/modules/:moduleId",deleteModule);
 
-    const findModuleByCourseNumber = async (req, res) => {
-        const { courseNumber } = req.params;
-        const modules = await dao.findModuleByCourseNumber(courseNumber);
-        res.json(modules);
-    };
-    app.get("/api/courses/:courseNumber/modules", findModuleByCourseNumber);
-
     const updateModule = async (req, res) => {
         const {moduleId} = req.params;
         const status = await dao.updateModule(moduleId, req.body);
@@ -43,6 +36,15 @@ export default function ModuleRoutes(app) {
         res.json(status);
     };
     app.put("/api/modules/:moduleId", updateModule);
+
+    const findModuleByCourseNumber = async (req, res) => {
+        const { courseNumber } = req.params;
+        const modules = await dao.findModuleByCourseNumber(courseNumber);
+        res.json(modules);
+    };
+    app.get("/api/courses/:courseNumber/modules", findModuleByCourseNumber);
+
+
 
 }
 
