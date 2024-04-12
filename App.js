@@ -14,7 +14,7 @@ const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0
 
 const branches = ["main", "a5", "a6"];
 const strippedNetlifyUrl = process.env.NETLIFY_URL.replace("https://", "");
-const allowedOrigins = [process.env.LOCAL_FRONTEND_URL, ...branches.map((branch) => `https://${branch}--${strippedNetlifyUrl}`)];
+const allowedOrigins = [process.env.FRONTEND_URL, ...branches.map((branch) => `https://${branch}--${strippedNetlifyUrl}`)];
 
 mongoose.connect(CONNECTION_STRING, {dbName: "kanbas"});
 const app = express()
