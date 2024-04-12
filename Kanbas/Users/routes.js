@@ -36,7 +36,7 @@ export default function UserRoutes(app) {
         const { userId } = req.params;
         const status = await dao.updateUser(userId, req.body);
         const currentUser = await dao.findUserById(userId);
-        res.json(status);
+        res.json(currentUser);
     };
     app.put("/api/users/:userId", updateUser);
 
